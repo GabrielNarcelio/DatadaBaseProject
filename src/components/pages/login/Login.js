@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../context/AuthContext";
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
     if (login(username, password)) {
-      navigate('/dashboard');
+      navigate("/dashboard");
     } else {
-      alert('Usuário ou senha inválidos');
+      alert("Usuário ou senha inválidos");
     }
   };
 
